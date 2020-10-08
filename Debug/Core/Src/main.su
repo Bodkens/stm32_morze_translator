@@ -1,6 +1,7 @@
-main.c:96:6:dot	16	static
-main.c:65:5:main	24	static
-main.c:103:6:dash	16	static
-main.c:234:6:SystemClock_Config	72	static
-main.c:273:13:MX_GPIO_Init	40	static
-main.c:303:6:Error_Handler	4	static
+main.c:99:7:dot	16	static
+main.c:95:6:translate_to_morze	24	static
+main.c:65:5:main	16	static
+main.c:106:7:dash	16	static
+main.c:164:6:SystemClock_Config	72	static
+main.c:203:13:MX_GPIO_Init	40	static
+main.c:233:6:Error_Handler	4	static
