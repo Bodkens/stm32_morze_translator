@@ -92,131 +92,61 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-char sentence[] = "abc";
-void dot()
+void translate_to_morze(char sentence[])
 {
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-	HAL_Delay(500);
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-	HAL_Delay(500);
-}
-void dash()
-{
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
-	HAL_Delay(1000);
-	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
-	HAL_Delay(1000);
-}
+
+
+	void dot()
+	{
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+		HAL_Delay(500);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+		HAL_Delay(500);
+	}
+	void dash()
+	{
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+		HAL_Delay(1000);
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+		HAL_Delay(1000);
+	}
+	for (int i = 0; i < sizeof(sentence) - 1; i++)
+		  {
+			  switch (sentence[i])
+			  {
+			  case 'a': dot(); dash(); // * -
+			  case 'b':	dash(); dot(); dot(); dot(); // _ * * *
+			  case 'c': dash(); dot(); dash(); dot(); // - * - *
+			  case 'd': dash(); dot(); dot(); // - * *
+			  case 'e': dot();// *
+			  case 'f': dot(); dot(); dash(); dot(); // * * - *
+			  case 'g': dash(); dash(); dot(); // - - *
+			  case 'h': dot(); dot(); dot(); dot(); // * * * *
+			  case 'i': dot(); dot();// * *
+			  case 'j': dot(); dash(); dash(); dash(); // * - - -
+			  case 'k': dash(); dot(); dash(); // - * -
+			  case 'l': dot(); dash(); dot(); dot(); // * - * *
+			  case 'm': dash(); dash(); // - -
+			  case 'n': dash(); dot(); // - *
+			  case 'o': dash(); dash(); dash(); // - - -
+			  case 'p': dot(); dash(); dash(); dot();// * - - *
+			  case 'q': dash(); dash(); dot(); dash();// - - * -
+			  case 'r': dot(); dash(); dot(); // * - *
+			  case 's': dot(); dot(); dot(); // * * *
+			  case 't': dash(); // -
+			  case 'u': dot(); dot(); dash(); // * * -
+			  case 'v': dot(); dot(); dot(); dash(); // * * * -
+			  case 'w': dot(); dash(); dash(); // * - -
+			  case 'x': dash(); dot(); dot(); dash(); // - * * -
+			  case 'y': dash(); dot(); dash(); dash(); // - * - -
+			  case 'z': dash(); dash(); dot(); dot(); // - - * *
+			  }
+		  }
+};
+
   while (1)
   {
-	  for (int i = 0; i < sizeof(sentence) - 1; i++)
-	  {
-		  if (sentence[i] == 'a') // * -
-		  {
-			  dot(); dash();
-		  }
-		  if (sentence[i] == 'b') // - * * *
-		  {
-		  	  dash(); dot(); dot(); dot();
-		  }
-		  if (sentence[i] == 'c') // - * - *
-		  {
-		  	  dash(); dot(); dash(); dot();
-		  }
-		  if (sentence[i] == 'd') // - * *
-		  {
-		  	  dash(); dot(); dot();
-		  }
-		  if (sentence[i] == 'e') // *
-		  {
-		  	  dot();
-		  }
-		  if (sentence[i] == 'f') // * * - *
-		  {
-		  	  dot(); dot(); dash(); dot();
-		  }
-		  if (sentence[i] == 'g') // - - *
-		  {
-			  dash(); dash(); dot();
-		  }
-		  if (sentence[i] == 'h') // * * * *
-		  {
-			  dot(); dot(); dot(); dot();
-		  }
-		  if (sentence[i] == 'i') // * *
-		  {
-		  	  dot(); dot();
-		  }
-		  if (sentence[i] == 'j') // * - - -
-		  {
-			  dot(); dash(); dash(); dash();
-		  }
-		  if (sentence[i] == 'k') // - * -
-		  {
-			  dash(); dot(); dash();
-		  }
-		  if (sentence[i] == 'l') // * - * *
-		  {
-		  	  dot(); dash(); dot(); dot();
-		  }
-		  if (sentence[i] == 'm') // - -
-		  {
-			  dash(); dash();
-		  }
-		  if (sentence[i] == 'n') // - *
-		  {
-			  dash(); dot();
-		  }
-		  if (sentence[i] == 'o') // - - -
-		  {
-			  dash(); dash(); dash();
-		  }
-		  if (sentence[i] == 'p') // * - - *
-		  {
-			  dot(); dash(); dash(); dot();
-		  }
-		  if (sentence[i] == 'q') // - - * -
-		  {
-			  dash(); dash(); dot(); dash();
-		  }
-		  if (sentence[i] == 'r') // * - *
-		  {
-			  dot(); dash(); dot();
-		  }
-		  if (sentence[i] == 's') // * * *
-		  {
-			  dot(); dot(); dot();
-		  }
-		  if (sentence[i] == 't') // -
-		  {
-			  dash();
-		  }
-		  if (sentence[i] == 'u') // * * -
-		  {
-			  dot(); dot(); dash();
-		  }
-		  if (sentence[i] == 'v') // * * * -
-		  {
-			  dot(); dot(); dot(); dash();
-		  }
-		  if (sentence[i] == 'w') // * - -
-		  {
-			  dot(); dash(); dash();
-		  }
-		  if (sentence[i] == 'x') // - * * -
-		  {
-			  dash(); dot(); dot(); dash();
-		  }
-		  if (sentence[i] == 'y') // - * - -
-		  {
-			  dash(); dot(); dash(); dash();
-		  }
-		  if (sentence[i] == 'z') // - - * *
-		  {
-			  dash(); dash(); dot(); dot();
-		  }
-	  }
-
+	  translate_to_morze("xyz");
 	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
 	  break;
 
